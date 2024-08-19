@@ -1,0 +1,72 @@
+<form [formGroup]="applyForm" class="row g-3 needs-validation" (submit)="onSubmit()">
+    <div class="col-md-6">
+        <label for="firstname" class="form-label">First name</label>
+        <input type="text" class="form-control" id="firstname" value="Mark" formControlName="firstName">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="lastname" class="form-label">Last name</label>
+        <input type="text" class="form-control" id="lastname" value="Otto" formControlName="lastName">
+        <div class="valid-feedback" *ngIf="applyForm.controls['firstName'].invalid 
+            && (applyForm.controls['firstName'].touched 
+            || applyForm.controls['firstName'].dirty)">
+            Looks good!
+        </div>
+    </div>
+    <div class="col-md-12">
+        <label for="username" class="form-label">User Name</label>
+        <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+            <input type="text" class="form-control" id="username" formControlName="userName"
+                aria-describedby="inputGroupPrepend">
+            <div class="invalid-feedback">
+                Please choose a User Name.
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <label for="password" class="form-label">Password</label>
+        <div class="input-group has-validation">
+            <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+            <input type="text" class="form-control" id="password" aria-describedby="inputGroupPrepend"
+                formControlName="password">
+            <div class="invalid-feedback">
+                Please choose a Password.
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="projectName" class="form-label">Project</label>
+        <input type="text" class="form-control" id="projectName" formControlName="projectName">
+        <div class="invalid-feedback">
+            Please provide a valid Project.
+        </div>
+    </div>
+    <div class="col-md-6">
+        <label for="role" class="form-label">Role</label>
+        <select class="form-select" id="role" formControlName="role">
+            <option selected disabled value="">Choose...</option>
+            <option>Employee</option>
+            <option>Admin</option>
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid state.
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" formControlName="canSubmit">
+            <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+                You must agree before submitting.
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Submit form</button>
+    </div>
+</form>
